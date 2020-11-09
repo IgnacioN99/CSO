@@ -1,0 +1,26 @@
+#!/bin/bash
+arr=()
+#####################################################
+cantArchivos(){									
+	echo "Cant de archivos ${#arr[*]}"
+}
+
+verArchivo(){
+	existe=0
+	for i in ${arr[*]}
+	do
+		if [ "$(echo $i | cut -d '/' -f 5)" = "$1" ];then
+			existe=1
+			break
+		fi
+	done
+	if [ $existe -eq 1 ]
+		cat $i
+	else
+		echo "archivo no encontrado"
+		return 5
+	fi
+}
+
+borrarArchivo(){
+}
